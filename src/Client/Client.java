@@ -11,9 +11,13 @@ public class Client {
     private ClientGUI clientGUI;
 
     public static void main(String[] args) {
-        Client client = new Client(args[0], Integer.parseInt(args[1]));
-        System.out.println(args[0]);
-        client.create();
+        try {
+            Client client = new Client(args[0], Integer.parseInt(args[1]));
+            System.out.println(args[0]);
+            client.create();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Client(String address, int port) {
@@ -23,8 +27,12 @@ public class Client {
     }
 
     public void create() {
-        this.clientGUI = new ClientGUI(this);
-        clientGUI.getFrame().setVisible(true);
+        try {
+            this.clientGUI = new ClientGUI(this);
+            clientGUI.getFrame().setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

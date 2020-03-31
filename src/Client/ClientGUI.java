@@ -1,6 +1,7 @@
 package Client;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,8 +28,12 @@ public class ClientGUI {
     public void create() {
 
         frame = new JFrame();
+        frame.setMinimumSize(new Dimension(450, 300));
+        frame.setBounds(100, 100, 450, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         text =  new JTextField();
+        text.setColumns(10);
 
         JButton search = new JButton("SEARCH");
         search.addActionListener(new ActionListener() {
@@ -57,7 +62,7 @@ public class ClientGUI {
             }
         });
 
-        JLabel meaning = new JLabel("The Meaning(s) of the word: ");
+        JLabel meaning = new JLabel("Meaning:");
         JScrollPane scrollPane = new JScrollPane();
         JLabel target = new JLabel("Word:");
         JTextArea meaningPane = new JTextArea();
@@ -70,21 +75,23 @@ public class ClientGUI {
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
                                 .addComponent(target, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-                        .addComponent(text, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(meaning, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(text, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                                .addGap(5)
+                                .addComponent(search, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(search, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addGap(25)
+                                .addComponent(meaning, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(groupLayout.createSequentialGroup()
+                                .addGap(5)
                                 .addComponent(add, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addGap(25)
+                                .addGap(10)
                                 .addComponent(remove, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                 .addGap(5))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
+                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                                 .addContainerGap())
         );
 
@@ -92,17 +99,18 @@ public class ClientGUI {
                 groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(target, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(text, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                .addGap(5)
-                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addComponent(target, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+                                .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(text, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(search, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
                                 .addGap(5)
                                 .addComponent(meaning, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
                                 .addGap(5)
+                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addGap(5)
                                 .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(search, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(add, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(remove, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(add, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(remove, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
                                 .addGap(8))
         );
         frame.getContentPane().setLayout(groupLayout);
