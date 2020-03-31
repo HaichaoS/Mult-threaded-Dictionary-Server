@@ -10,8 +10,9 @@ public class Client {
     private int port;
     private ClientGUI clientGUI;
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Client client = new Client(args[0], Integer.parseInt(args[1]));
+        System.out.println(args[0]);
         client.create();
     }
 

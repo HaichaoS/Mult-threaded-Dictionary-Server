@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Mult-threaded-Dictionary-Server:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Mult_threaded_Dictionary_Server_jar</output-path>
+    <root id="archive" name="Mult-threaded-Dictionary-Server.jar">
+      <element id="module-output" name="Mult-threaded-Dictionary-Server" />
+    </root>
+  </artifact>
+</component>
