@@ -91,8 +91,7 @@ public class ClientGUI {
                                 .addGap(5))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-                                .addContainerGap())
+                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
         );
 
         groupLayout.setVerticalGroup(
