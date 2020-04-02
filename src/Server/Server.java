@@ -1,7 +1,5 @@
 package Server;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -30,6 +28,7 @@ public class Server {
     }
 
     public void create() {
+
         try {
 
             ServerSocket ss = new ServerSocket(this.port);
@@ -43,13 +42,13 @@ public class Server {
                 System.out.println("A new client is connected : " + s);
 
                 // obtaining input and out streams
-                DataInputStream dis = new DataInputStream(s.getInputStream());
-                DataOutputStream dos = new DataOutputStream(s.getOutputStream());
+//                DataInputStream dis = new DataInputStream(s.getInputStream());
+//                DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Thread t = new ClientHandler(s, dis, dos);
+                Thread t = new ClientHandler(s,this, path);
 
                 // Invoking the start() method
                 t.start();
