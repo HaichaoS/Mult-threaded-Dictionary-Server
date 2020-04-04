@@ -1,7 +1,9 @@
 package Server;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -76,6 +78,41 @@ public class Server {
         return  dict;
     }
 
+    public String searchDict(String word) {
+        return dict.get(word);
+    }
+
+    public boolean addDict(String word, String meaning) {
+        if (dict.containsKey(word)) {
+            return false;
+        } else {
+            dict.put(word, meaning);
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
+                oos.writeObject(dict);
+                oos.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+    }
+
+    public boolean removeDict(String word) {
+        if (dict.containsKey(word)) {
+            dict.remove(word);
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
+                oos.writeObject(dict);
+                oos.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public int getPort() {return this.port;}
     public String getPath() {return this.path;}
