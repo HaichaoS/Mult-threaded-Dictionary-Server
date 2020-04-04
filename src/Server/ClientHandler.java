@@ -43,6 +43,20 @@ public class ClientHandler extends Thread {
                     JSONParser jsonParser = new JSONParser();
                     JSONObject jsonObject = (JSONObject) jsonParser.parse(dis.readUTF());
 
+                    String command =  (String) jsonObject.get("command");
+                    String word = (String) jsonObject.get("word");
+                    String meaning =  (String) jsonObject.get("meaning");
+
+                    if (command == "Search") {
+
+                    } else if  (command == "Add")  {
+
+                    } else {
+
+                    }
+
+                    s.close();
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -50,7 +64,7 @@ public class ClientHandler extends Thread {
                 e.printStackTrace();
             }
         }
-        
+
     }
 
 }
