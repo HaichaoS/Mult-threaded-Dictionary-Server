@@ -45,6 +45,8 @@ public class ClientHandler extends Thread {
                     String word = (String) jsonObject.get("word");
                     String meaning =  (String) jsonObject.get("meaning");
 
+                    JSONObject jsonServer = new JSONObject();
+
                     if (command == "Search") {
 
                         if (server.searchDict(word) == null) {
@@ -53,8 +55,8 @@ public class ClientHandler extends Thread {
                             server.printLog( word + ": " + server.searchDict(word));
                         }
 
-                        jsonObject.put("meaning", meaning);
-                        dos.writeUTF(jsonObject.toJSONString());
+                        jsonServer.put("meaning", meaning);
+                        dos.writeUTF(jsonServer.toJSONString());
                         dos.flush();
 
                     } else if  (command == "Add") {
@@ -65,8 +67,8 @@ public class ClientHandler extends Thread {
                             server.printLog("Fail, the word already in the dictionary");
                         }
 
-                        jsonObject.put("meaning", "");
-                        dos.writeUTF(jsonObject.toJSONString());
+                        jsonServer.put("meaning", "");
+                        dos.writeUTF(jsonServer.toJSONString());
                         dos.flush();
 
                     } else if (command == "Remove") {
@@ -77,8 +79,8 @@ public class ClientHandler extends Thread {
                             server.printLog("Fail, the word does not in the dictionary");
                         }
 
-                        jsonObject.put("meaning", "");
-                        dos.writeUTF(jsonObject.toJSONString());
+                        jsonServer.put("meaning", "");
+                        dos.writeUTF(jsonServer.toJSONString());
                         dos.flush();
                     }
 
