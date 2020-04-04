@@ -8,7 +8,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.HashMap;
 
 /**
  * Haichao Song
@@ -18,24 +17,22 @@ public class ClientHandler extends Thread {
 
     private Socket s;
     private Server server;
-    private HashMap<String, String> dict;
     private DataInputStream dis;
     private DataOutputStream dos;
 
 
     // Constructor
-    public ClientHandler(Socket s, Server server, HashMap<String, String> dict)
+    public ClientHandler(Socket s, Server server)
     {
         this.s = s;
         this.server = server;
-        this.dict = dict;
     }
 
     @Override
     public void run()
     {
-        String received;
-        String toreturn;
+//        String received;
+//        String toreturn;
         while (true)
         {
             try {
@@ -50,14 +47,29 @@ public class ClientHandler extends Thread {
 
                     if (command == "Search") {
 
-                    } else if  (command == "Add")  {
+                        if (server.searchDict(word) == null) {
+                            server.printLog("Fail, the word does not in the dictionary");
+                        } else {
+                            server.printLog( word + ": " + server.searchDict(word));
+                        }
 
-                    } else {
+                    } else if  (command == "Add") {
 
+                        if (server.addDict(word, meaning) == true) {
+                            server.printLog("Word add success");
+                        } else {
+                            server.printLog("Fail, the word already in the dictionary");
+                        }
+
+                    } else if (command == "Remove") {
+
+                        if (server.removeDict(word) == true) {
+                            server.printLog("Word remove success");
+                        } else {
+                            server.printLog("Fail, the word does not in the dictionary");
+                        }
                     }
-
                     s.close();
-
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -55,7 +55,7 @@ public class Server {
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Thread t = new ClientHandler(s,this, dict);
+                Thread t = new ClientHandler(s,this);
 
                 // Invoking the start() method
                 t.start();
@@ -112,6 +112,11 @@ public class Server {
         } else {
             return false;
         }
+    }
+
+    public void printLog(String s) {
+        System.out.println(s);
+        if (serverGUI != null) serverGUI.getTextArea().append(s + '\n');
     }
 
     public int getPort() {return this.port;}

@@ -13,6 +13,7 @@ public class ServerGUI {
     private JFrame frame;
     private Server server;
     private JLabel address;
+    private JTextArea textArea;
 
     public JFrame getFrame() {
         return frame;
@@ -42,7 +43,7 @@ public class ServerGUI {
         JLabel log = new JLabel("Log:");
         JScrollPane scrollPane = new JScrollPane();
 
-        JTextArea textArea = new JTextArea();
+        textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setEditable(false);
         scrollPane.setViewportView(textArea);
@@ -84,4 +85,7 @@ public class ServerGUI {
 
     }
 
+    public JTextArea getTextArea() {
+        return textArea;
+    }
 }
