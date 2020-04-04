@@ -54,9 +54,9 @@ public class ExecuteThread extends Thread  {
             dos.close();
             socket.close();
 
-        } catch (IOException) {
+        } catch (IOException e) {
             System.out.println("Error: I/O ERROR!");
-        } catch (ParseException | IOException e) {
+        } catch (ParseException e) {
             System.out.println("Error: Parse ERROR!");
         }
 
