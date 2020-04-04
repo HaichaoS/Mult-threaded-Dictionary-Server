@@ -17,6 +17,7 @@ public class ExecuteThread extends Thread  {
 
     private String address, command, word, meaning;
     private int port, state;
+    private String[] request = {"",""};
 
     public ExecuteThread(String address, int port, String command, String word, String meaning) {
 
@@ -60,6 +61,12 @@ public class ExecuteThread extends Thread  {
             System.out.println("Error: Parse ERROR!");
         }
 
+        request[1] = meaning;
+
+    }
+
+    public String[] getRequest() {
+        return request;
     }
 
 }
