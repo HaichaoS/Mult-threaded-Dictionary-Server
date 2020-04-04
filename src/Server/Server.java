@@ -1,7 +1,10 @@
 package Server;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 
 /**
  * Haichao Song
@@ -11,6 +14,7 @@ public class Server {
 
     private int port;
     private String path;
+    private HashMap<String, String> dict;
     private ServerGUI serverGUI;
 
     public static void main(String[] args) {
@@ -25,6 +29,7 @@ public class Server {
     public Server(String port, String path) {
         this.port = Integer.parseInt(port);
         this.path = path;
+        this.dict = readDic(path);
     }
 
     public void create() {
@@ -48,7 +53,7 @@ public class Server {
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Thread t = new ClientHandler(s,this, path);
+                Thread t = new ClientHandler(s,this, dict);
 
                 // Invoking the start() method
                 t.start();
@@ -58,6 +63,19 @@ public class Server {
             e.printStackTrace();
         }
     }
+
+    public HashMap<String, String> readDic(String path) {
+        HashMap<String, String> dict = new HashMap<>();
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
+            dict = (HashMap<String, String>) ois.readObject();
+            ois.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  dict;
+    }
+
 
     public int getPort() {return this.port;}
     public String getPath() {return this.path;}

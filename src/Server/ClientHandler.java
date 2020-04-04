@@ -8,6 +8,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.HashMap;
 
 /**
  * Haichao Song
@@ -17,17 +18,17 @@ public class ClientHandler extends Thread {
 
     private Socket s;
     private Server server;
-    private String path;
+    private HashMap<String, String> dict;
     private DataInputStream dis;
     private DataOutputStream dos;
 
 
     // Constructor
-    public ClientHandler(Socket s, Server server, String path)
+    public ClientHandler(Socket s, Server server, HashMap<String, String> dict)
     {
         this.s = s;
         this.server = server;
-        this.path = path;
+        this.dict = dict;
     }
 
     @Override
