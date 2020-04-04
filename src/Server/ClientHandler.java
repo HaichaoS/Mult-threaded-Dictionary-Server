@@ -53,6 +53,10 @@ public class ClientHandler extends Thread {
                             server.printLog( word + ": " + server.searchDict(word));
                         }
 
+                        jsonObject.put("meaning", meaning);
+                        dos.writeUTF(jsonObject.toJSONString());
+                        dos.flush();
+
                     } else if  (command == "Add") {
 
                         if (server.addDict(word, meaning) == true) {
@@ -61,6 +65,10 @@ public class ClientHandler extends Thread {
                             server.printLog("Fail, the word already in the dictionary");
                         }
 
+                        jsonObject.put("meaning", "");
+                        dos.writeUTF(jsonObject.toJSONString());
+                        dos.flush();
+
                     } else if (command == "Remove") {
 
                         if (server.removeDict(word) == true) {
@@ -68,7 +76,14 @@ public class ClientHandler extends Thread {
                         } else {
                             server.printLog("Fail, the word does not in the dictionary");
                         }
+
+                        jsonObject.put("meaning", "");
+                        dos.writeUTF(jsonObject.toJSONString());
+                        dos.flush();
                     }
+
+                    dis.close();
+                    dos.close();
                     s.close();
 
             } catch (IOException e) {
