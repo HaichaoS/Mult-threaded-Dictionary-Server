@@ -14,7 +14,7 @@ public class ClientGUI {
     private JFrame frame;
     private JTextField text;
     private Client client;
-    private String word;
+    private String word, mean;
 
     public JFrame getFrame() {
         return frame;
@@ -34,13 +34,18 @@ public class ClientGUI {
 
         text =  new JTextField();
         text.setColumns(10);
+        JLabel meaning = new JLabel("Meaning:");
+        JScrollPane scrollPane = new JScrollPane();
+        JLabel target = new JLabel("Word:");
+        JTextArea meaningPane = new JTextArea();
+
 
         JButton search = new JButton("SEARCH");
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
-
+                String[] request = client.search(word);
             }
         });
 
@@ -49,7 +54,10 @@ public class ClientGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
-
+                mean = meaningPane.getText();
+                String[] request = client.add(word, mean);
+                int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
+                        "Confirm Window", JOptionPane.YES_NO_OPTION);
             }
         });
 
@@ -58,14 +66,11 @@ public class ClientGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
-
+                String[] request = client.remove(word);
+                int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
+                        "Confirm Window", JOptionPane.YES_NO_OPTION);
             }
         });
-
-        JLabel meaning = new JLabel("Meaning:");
-        JScrollPane scrollPane = new JScrollPane();
-        JLabel target = new JLabel("Word:");
-        JTextArea meaningPane = new JTextArea();
 
         scrollPane.setViewportView(meaningPane);
         meaningPane.setLineWrap(true);
