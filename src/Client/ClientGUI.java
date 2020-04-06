@@ -46,6 +46,12 @@ public class ClientGUI {
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
                 String[] request = client.search(word);
+                if (Integer.parseInt(request[0]) == 0 ) {
+                    JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } else {
+                    meaningPane.setText(request[1]);
+                }
             }
         });
 
@@ -58,6 +64,15 @@ public class ClientGUI {
                 String[] request = client.add(word, mean);
                 int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
                         "Confirm Window", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    if (Integer.parseInt(request[0]) == 0 ) {
+                        JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
+                                JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Add Success.", "Tips",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
             }
         });
 
@@ -69,6 +84,15 @@ public class ClientGUI {
                 String[] request = client.remove(word);
                 int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
                         "Confirm Window", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    if (Integer.parseInt(request[0]) == 0 ) {
+                        JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
+                                JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Remove Success.", "Tips",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
             }
         });
 
