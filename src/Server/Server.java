@@ -1,12 +1,16 @@
 package Server;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.HashMap;
 
 /**
  * Haichao Song
@@ -16,7 +20,7 @@ public class Server {
 
     private int port;
     private String path;
-    private HashMap<String, String> dict;
+    private JSONArray dict;
     private ServerGUI serverGUI;
 
     public static void main(String[] args) {
@@ -66,32 +70,60 @@ public class Server {
         }
     }
 
-    public HashMap<String, String> readDic(String path) {
-        HashMap<String, String> dict = new HashMap<>();
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
-            dict = (HashMap<String, String>) ois.readObject();
-            ois.close();
-        } catch (Exception e) {
+    public JSONArray readDic(String path) {
+        JSONParser jsonParser = new JSONParser();
+        JSONArray dictList = new JSONArray();
+
+        try (FileReader reader = new FileReader(path))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+
+            dictList = (JSONArray) obj;
+            System.out.println(dictList);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
-        return  dict;
+
+        return dictList;
+
     }
 
     public String searchDict(String word) {
-        return dict.get(word);
+        if (dict.contains(word)) {
+            return null;
+        } else {
+            for (int i = 0 ; i < dict.size(); i ++) {
+                JSONObject res = (JSONObject) dict.get(i);
+                if (res.get("Word").toString().equals(word)) {
+                    return res.get("Meaning").toString();
+                }
+            }
+            return null;
+        }
     }
 
     public boolean addDict(String word, String meaning) {
-        if (dict.containsKey(word)) {
+        if (dict.contains(word)) {
             return false;
         } else {
-            dict.put(word, meaning);
-            try {
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
-                oos.writeObject(dict);
-                oos.close();
-            } catch (Exception e) {
+            JSONObject wordObject = new JSONObject();
+            wordObject.put("Word", word);
+            wordObject.put("Meaning", meaning);
+
+            dict.add(wordObject.toJSONString());
+
+            try (FileWriter file = new FileWriter(path)) {
+
+                file.write(dict.toJSONString());
+                file.flush();
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             return true;
@@ -99,15 +131,23 @@ public class Server {
     }
 
     public boolean removeDict(String word) {
-        if (dict.containsKey(word)) {
-            dict.remove(word);
-            try {
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
-                oos.writeObject(dict);
-                oos.close();
-            } catch (Exception e) {
+        if (dict.contains(word)) {
+            for (int i = 0 ; i < dict.size(); i ++) {
+                JSONObject res = (JSONObject) dict.get(i);
+                if (res.get("Word").toString().equals(word)) {
+                    dict.remove(i);
+                }
+            }
+
+            try (FileWriter file = new FileWriter(path)) {
+
+                file.write(dict.toJSONString());
+                file.flush();
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+
             return true;
         } else {
             return false;
