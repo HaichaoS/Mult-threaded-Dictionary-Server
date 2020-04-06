@@ -26,6 +26,7 @@ public class ExecuteThread extends Thread  {
         this.command = command;
         this.word = word;
         this.meaning = meaning;
+        this.state = 0;
 
     }
 
@@ -49,8 +50,10 @@ public class ExecuteThread extends Thread  {
             JSONObject jsonRead;
             JSONParser parser = new JSONParser();
             jsonRead = (JSONObject) parser.parse(dis.readUTF());
-            meaning = (String) jsonRead.get("meaning");
-
+            state = Integer.parseInt(jsonRead.get("state").toString());
+            if (state == 1) {
+                meaning = (String) jsonRead.get("meaning");
+            }
             dis.close();
             dos.close();
             socket.close();
@@ -60,7 +63,7 @@ public class ExecuteThread extends Thread  {
         } catch (ParseException e) {
             System.out.println("Error: Parse ERROR!");
         }
-
+        request[0] = String.valueOf(state);
         request[1] = meaning;
 
     }

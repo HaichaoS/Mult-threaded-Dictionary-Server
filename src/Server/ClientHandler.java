@@ -31,70 +31,66 @@ public class ClientHandler extends Thread {
     @Override
     public void run()
     {
-//        String received;
-//        String toreturn;
-        while (true)
-        {
-            try {
-                    dis = new DataInputStream(s.getInputStream());
-                    dos = new DataOutputStream(s.getOutputStream());
-                    JSONParser jsonParser = new JSONParser();
-                    JSONObject jsonObject = (JSONObject) jsonParser.parse(dis.readUTF());
 
-                    String command =  (String) jsonObject.get("command");
-                    String word = (String) jsonObject.get("word");
-                    String meaning =  (String) jsonObject.get("meaning");
+        try {
+            dis = new DataInputStream(s.getInputStream());
+            dos = new DataOutputStream(s.getOutputStream());
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(dis.readUTF());
 
-                    JSONObject jsonServer = new JSONObject();
+            String command =  (String) jsonObject.get("command");
+            String word = (String) jsonObject.get("word");
+            String meaning =  (String) jsonObject.get("meaning");
 
-                    if (command == "Search") {
+            JSONObject jsonServer = new JSONObject();
 
-                        if (server.searchDict(word) == null) {
-                            server.printLog("Fail, the word does not in the dictionary");
-                        } else {
-                            server.printLog( word + ": " + server.searchDict(word));
-                        }
+            if (command == "Search") {
 
-                        jsonServer.put("meaning", meaning);
-                        dos.writeUTF(jsonServer.toJSONString());
-                        dos.flush();
+                if (server.searchDict(word) == null) {
+                    server.printLog("Fail, the word does not in the dictionary");
+                } else {
+                    server.printLog( word + ": " + server.searchDict(word));
+                }
 
-                    } else if  (command == "Add") {
+                jsonServer.put("meaning", meaning);
+                dos.writeUTF(jsonServer.toJSONString());
+                dos.flush();
 
-                        if (server.addDict(word, meaning) == true) {
-                            server.printLog("Word add success");
-                        } else {
-                            server.printLog("Fail, the word already in the dictionary");
-                        }
+            } else if  (command == "Add") {
 
-                        jsonServer.put("meaning", "");
-                        dos.writeUTF(jsonServer.toJSONString());
-                        dos.flush();
+                if (server.addDict(word, meaning) == true) {
+                    server.printLog("Word add success");
+                } else {
+                    server.printLog("Fail, the word already in the dictionary");
+                }
 
-                    } else if (command == "Remove") {
+                jsonServer.put("meaning", "");
+                dos.writeUTF(jsonServer.toJSONString());
+                dos.flush();
 
-                        if (server.removeDict(word) == true) {
-                            server.printLog("Word remove success");
-                        } else {
-                            server.printLog("Fail, the word does not in the dictionary");
-                        }
+            } else if (command == "Remove") {
 
-                        jsonServer.put("meaning", "");
-                        dos.writeUTF(jsonServer.toJSONString());
-                        dos.flush();
-                    }
+                if (server.removeDict(word) == true) {
+                    server.printLog("Word remove success");
+                } else {
+                    server.printLog("Fail, the word does not in the dictionary");
+                }
 
-                    dis.close();
-                    dos.close();
-                    s.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
-                e.printStackTrace();
+                jsonServer.put("meaning", "");
+                dos.writeUTF(jsonServer.toJSONString());
+                dos.flush();
             }
-        }
 
+            dis.close();
+            dos.close();
+            s.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
+
 
 }

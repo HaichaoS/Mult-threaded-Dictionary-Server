@@ -56,7 +56,7 @@ public class ClientGUI {
         });
 
         JButton add = new JButton("ADD");
-        search.addActionListener(new ActionListener() {
+        add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
@@ -77,7 +77,7 @@ public class ClientGUI {
         });
 
         JButton remove = new JButton("REMOVE");
-        search.addActionListener(new ActionListener() {
+        remove.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
