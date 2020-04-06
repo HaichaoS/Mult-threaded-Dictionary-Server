@@ -41,6 +41,7 @@ public class ClientHandler extends Thread {
             String command =  (String) jsonObject.get("command");
             String word = (String) jsonObject.get("word");
             String meaning =  (String) jsonObject.get("meaning");
+            int state = 0;
 
             JSONObject jsonServer = new JSONObject();
 
@@ -49,9 +50,11 @@ public class ClientHandler extends Thread {
                 if (server.searchDict(word) == null) {
                     server.printLog("Fail, the word does not in the dictionary");
                 } else {
+                    state = 1;
                     server.printLog( word + ": " + server.searchDict(word));
                 }
 
+                jsonServer.put("state", String.valueOf(state));
                 jsonServer.put("meaning", meaning);
                 dos.writeUTF(jsonServer.toJSONString());
                 dos.flush();
@@ -59,11 +62,13 @@ public class ClientHandler extends Thread {
             } else if  (command == "Add") {
 
                 if (server.addDict(word, meaning) == true) {
+                    state = 1;
                     server.printLog("Word add success");
                 } else {
                     server.printLog("Fail, the word already in the dictionary");
                 }
 
+                jsonServer.put("state", String.valueOf(state));
                 jsonServer.put("meaning", "");
                 dos.writeUTF(jsonServer.toJSONString());
                 dos.flush();
@@ -71,11 +76,13 @@ public class ClientHandler extends Thread {
             } else if (command == "Remove") {
 
                 if (server.removeDict(word) == true) {
+                    state = 1;
                     server.printLog("Word remove success");
                 } else {
                     server.printLog("Fail, the word does not in the dictionary");
                 }
 
+                jsonServer.put("state", String.valueOf(state));
                 jsonServer.put("meaning", "");
                 dos.writeUTF(jsonServer.toJSONString());
                 dos.flush();
