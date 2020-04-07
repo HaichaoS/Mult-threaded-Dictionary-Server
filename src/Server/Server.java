@@ -96,6 +96,7 @@ public class Server {
 
     public String searchDict(String word) {
         if (dict.contains(word)) {
+            System.out.println("Server check");
             return null;
         } else {
             for (int i = 0 ; i < dict.size(); i ++) {
@@ -110,6 +111,7 @@ public class Server {
 
     public boolean addDict(String word, String meaning) {
         if (dict.contains(word)) {
+            System.out.println("Server check");
             return false;
         } else {
             JSONObject wordObject = new JSONObject();
@@ -150,6 +152,7 @@ public class Server {
 
             return true;
         } else {
+            System.out.println("Server check");
             return false;
         }
     }

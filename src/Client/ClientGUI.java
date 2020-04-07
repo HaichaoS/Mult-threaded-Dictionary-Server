@@ -46,6 +46,9 @@ public class ClientGUI {
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
                 String[] request = client.search(word);
+
+                System.out.println("Get Search State: " + request[0]);
+
                 if (Integer.parseInt(request[0]) == 0 ) {
                     JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
                             JOptionPane.WARNING_MESSAGE);
@@ -65,6 +68,9 @@ public class ClientGUI {
                 int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
                         "Confirm Window", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
+
+                    System.out.println("Get Add State: " + request[0]);
+
                     if (Integer.parseInt(request[0]) == 0 ) {
                         JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
                                 JOptionPane.WARNING_MESSAGE);
@@ -85,6 +91,9 @@ public class ClientGUI {
                 int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
                         "Confirm Window", JOptionPane.YES_NO_OPTION);
                 if (confirm == JOptionPane.YES_OPTION) {
+
+                    System.out.println("Get Remove State: " + request[0]);
+
                     if (Integer.parseInt(request[0]) == 0 ) {
                         JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
                                 JOptionPane.WARNING_MESSAGE);

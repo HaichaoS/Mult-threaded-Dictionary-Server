@@ -52,9 +52,10 @@ public class Client {
         return request;
     }
 
-    private String[] execute(String command, String word, String meaning) {
+    public String[] execute(String command, String word, String meaning) {
 
         int state = 0;
+        printLog(command, word, meaning);
 
         try {
 
@@ -69,6 +70,8 @@ public class Client {
             state = Integer.parseInt(eThreadRequest[0]);
             meaning = eThreadRequest[1];
 
+            System.out.println("Connect Success");
+
         } catch (TimeoutException e) {
             meaning = "";
         } catch (Exception e) {
@@ -80,20 +83,22 @@ public class Client {
 
     }
 
-    private void printResponse(int state, String meaning) {
+    public void printResponse(int state, String meaning) {
         System.out.println("  Response:");
-        switch (state) {
-            case 1:
-                System.out.println("  State: SUCCESS");
-                break;
-            case 0:
-                System.out.println("  State: FAIL");
-                break;
-            default:
-                System.out.println("  Error: Unknown State");
-                break;
+        if (state == 0) {
+            System.out.println("  State: FAIL");
+        } else if (state == 1) {
+            System.out.println("  State: SUCCESS");
+        } else {
+            System.out.println("  Error: Unknown State");
         }
-        System.out.println("  Meaning:\n\t" + meaning);
+        System.out.println("  Meaning: " + meaning);
+    }
+
+    public void printLog(String command, String word, String meaning) {
+        System.out.println("Command: " + command);
+        System.out.println("Word: " + word);
+        System.out.println("Meaning: " + meaning);
     }
 
 }
