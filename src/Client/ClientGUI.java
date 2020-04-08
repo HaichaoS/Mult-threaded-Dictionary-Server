@@ -153,4 +153,6 @@ public class ClientGUI {
         frame.getContentPane().setLayout(groupLayout);
     }
 
+    
+
 }

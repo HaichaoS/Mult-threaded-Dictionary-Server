@@ -14,9 +14,15 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            Client client = new Client(args[0], Integer.parseInt(args[1]));
-            System.out.println(args[0]);
-            client.create();
+
+            if (Integer.parseInt(args[1]) <= 1024 || Integer.parseInt(args[1]) >= 49151) {
+                System.out.println("Invalid Port Number");
+                System.exit(-1);
+            } else {
+                Client client = new Client(args[0], Integer.parseInt(args[1]));
+                System.out.println(args[0]);
+                client.create();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -73,13 +79,14 @@ public class Client {
             System.out.println("Connect Success");
 
         } catch (TimeoutException e) {
+            state = 2;
             meaning = "";
         } catch (Exception e) {
             e.printStackTrace();
         }
         printResponse(state, meaning);
-        String[] resultArr = {String.valueOf(state), meaning};
-        return resultArr;
+        String[] res = {String.valueOf(state), meaning};
+        return res;
 
     }
 
