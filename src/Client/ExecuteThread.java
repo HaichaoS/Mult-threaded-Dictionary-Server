@@ -37,33 +37,25 @@ public class ExecuteThread extends Thread  {
 
         try {
 
+            System.out.println("Check I/O Error:");
+            System.out.println(command);
+            System.out.println(word);
+            System.out.println(meaning);
+
             socket = new Socket(address, port);
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-            JSONObject jsonWrite = new JSONObject();
-            jsonWrite.put("command", command);
-            jsonWrite.put("word", word);
-            jsonWrite.put("meaning", meaning);
-
-            dos.writeUTF(jsonWrite.toJSONString());
+            dos.writeUTF(writeJSON().toJSONString());
             dos.flush();
-
             String result = dis.readUTF();
-            JSONObject jsonRead = null;
-
-            try {
-                JSONParser parser = new JSONParser();
-                jsonRead = (JSONObject) parser.parse(result);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            state = Integer.parseInt(jsonRead.get("state").toString());
-
+            JSONObject jsonObject = parse(result);
+            state = Integer.parseInt(jsonObject.get("state").toString());
             if (state == 1) {
-                meaning = (String) jsonRead.get("meaning");
+                meaning = (String) jsonObject.get("meaning");
             }
+            dis.close();
+            dos.close();
 
         }  catch (SocketTimeoutException e) {
             state = 2;
@@ -89,6 +81,25 @@ public class ExecuteThread extends Thread  {
 
     public String[] getRequest() {
         return request;
+    }
+
+    private JSONObject writeJSON() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("command", command);
+        jsonObject.put("word", word);
+        jsonObject.put("meaning", meaning);
+        return jsonObject;
+    }
+
+    private JSONObject parse(String s) {
+        JSONObject jsonObject = null;
+        try {
+            JSONParser parser = new JSONParser();
+            jsonObject = (JSONObject) parser.parse(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 
 }

@@ -26,7 +26,7 @@ public class Server {
 
     public static void main(String[] args) {
 
-        if (Integer.parseInt(args[1]) <= 1024 || Integer.parseInt(args[1]) >= 49151) {
+        if (Integer.parseInt(args[0]) <= 1024 || Integer.parseInt(args[0]) >= 49151) {
             System.out.println("Invalid Port Number");
             System.exit(-1);
         } else {

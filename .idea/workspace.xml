@@ -7,6 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6960cbd-2c7d-46e1-9df1-79db6f08f3a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/DictClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/DictClientGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/DictClientGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/DictClientGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/DictClientGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ExecuteThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ExecuteThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/DictRequestHandlerThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/DictServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/DictServerUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/DictServerUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Dictionary.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/StateCode/StateCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ExecuteThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ExecuteThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,24 +38,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/ClientHandler.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/ExecuteThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="-472">
+              <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+              <folding>
+                <element signature="e#2532#2533#0" expanded="true" />
+                <element signature="e#2562#2563#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Server/Server.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="158" column="34" lean-forward="true" selection-start-line="158" selection-start-column="34" selection-end-line="158" selection-end-column="34" />
-              <folding>
-                <element signature="e#3107#3108#0" expanded="true" />
-                <element signature="e#3181#3182#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-682">
+              <caret line="110" column="65" selection-start-line="110" selection-start-column="65" selection-end-line="110" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-350">
+              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -64,6 +87,7 @@
       <find>readUTF</find>
       <find>printRe</find>
       <find>FAIL</find>
+      <find>t.</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -73,14 +97,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Server/ServerGUI.java" />
-        <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/Client/DictClient.java" />
         <option value="$PROJECT_DIR$/src/StateCode/StateCode.java" />
         <option value="$PROJECT_DIR$/src/Server/Dictionary.java" />
-        <option value="$PROJECT_DIR$/src/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/Client/ClientGUI.java" />
-        <option value="$PROJECT_DIR$/src/Client/ExecuteThread.java" />
+        <option value="$PROJECT_DIR$/src/Client/Client.java" />
         <option value="$PROJECT_DIR$/src/Server/Server.java" />
+        <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
+        <option value="$PROJECT_DIR$/src/Client/ExecuteThread.java" />
       </list>
     </option>
   </component>
@@ -190,13 +214,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="11.0.2" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Client.Client" />
       <module name="Mult-threaded-Dictionary-Server" />
-      <option name="PROGRAM_PARAMETERS" value="192.168.0.107 4444" />
+      <option name="PROGRAM_PARAMETERS" value="169.254.111.90 4444" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -239,12 +263,12 @@
       <workItem from="1586137532482" duration="12728000" />
       <workItem from="1586230077465" duration="1787000" />
       <workItem from="1586245863911" duration="135000" />
-      <workItem from="1586246035740" duration="5535000" />
+      <workItem from="1586246035740" duration="7120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62231000" />
+    <option name="totallyTimeSpent" value="63816000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="6" />
@@ -259,7 +283,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31412894" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32784638" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,23 +395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/ExecuteThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-          <folding>
-            <element signature="e#2562#2563#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="110" column="65" selection-start-line="110" selection-start-column="65" selection-end-line="110" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/ServerGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -395,27 +402,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="63" column="58" selection-start-line="63" selection-start-column="58" selection-end-line="63" selection-end-column="58" />
+          <folding>
+            <element signature="e#3107#3108#0" expanded="true" />
+            <element signature="e#3181#3182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="-350">
+          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="7">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="158" column="34" lean-forward="true" selection-start-line="158" selection-start-column="34" selection-end-line="158" selection-end-column="34" />
+        <state relative-caret-position="-682">
+          <caret line="110" column="65" selection-start-line="110" selection-start-column="65" selection-end-line="110" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/ExecuteThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
           <folding>
-            <element signature="e#3107#3108#0" expanded="true" />
-            <element signature="e#3181#3182#0" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2562#2563#0" expanded="true" />
           </folding>
         </state>
       </provider>

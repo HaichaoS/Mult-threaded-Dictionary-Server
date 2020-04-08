@@ -2,7 +2,6 @@ package Server;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -35,56 +34,44 @@ public class ClientHandler extends Thread {
         try {
             dis = new DataInputStream(s.getInputStream());
             dos = new DataOutputStream(s.getOutputStream());
-            JSONParser jsonParser = new JSONParser();
-            JSONObject jsonObject = (JSONObject) jsonParser.parse(dis.readUTF());
 
-            String command =  (String) jsonObject.get("command");
-            String word = (String) jsonObject.get("word");
-            String meaning =  (String) jsonObject.get("meaning");
+            JSONObject jsonObject = parse(dis.readUTF());
+            String command = jsonObject.get("command").toString();
+            String word = jsonObject.get("word").toString();
+            String meaning = jsonObject.get("meaning").toString();
             int state = 0;
-
-            JSONObject jsonServer = new JSONObject();
 
             if (command == "Search") {
 
-                if (server.searchDict(word) == null) {
-                    server.printLog("Fail, the word does not in the dictionary");
-                } else {
+                if (server.isWordExist(word)) {
+                    meaning = server.searchDict(word);
                     state = 1;
-                    server.printLog( word + ": " + server.searchDict(word));
+                } else {
+                    state = 0;
                 }
-
-                jsonServer.put("state", String.valueOf(state));
-                jsonServer.put("meaning", meaning);
-                dos.writeUTF(jsonServer.toJSONString());
-                dos.flush();
+                dos.writeUTF(writeJSON(state, meaning).toJSONString());
+               dos.flush();
 
             } else if  (command == "Add") {
 
-                if (server.addDict(word, meaning) == true) {
+                if (!server.isWordExist(word)) {
+                    server.addDict(word, meaning);
                     state = 1;
-                    server.printLog("Word add success");
                 } else {
-                    server.printLog("Fail, the word already in the dictionary");
+                    state = 0;
                 }
-
-                jsonServer.put("state", String.valueOf(state));
-                jsonServer.put("meaning", "");
-                dos.writeUTF(jsonServer.toJSONString());
+                dos.writeUTF(writeJSON(state, "").toJSONString());
                 dos.flush();
 
             } else if (command == "Remove") {
 
-                if (server.removeDict(word) == true) {
+                if (server.isWordExist(word)) {
+                    server.removeDict(word);
                     state = 1;
-                    server.printLog("Word remove success");
                 } else {
-                    server.printLog("Fail, the word does not in the dictionary");
+                    state = 0;
                 }
-
-                jsonServer.put("state", String.valueOf(state));
-                jsonServer.put("meaning", "");
-                dos.writeUTF(jsonServer.toJSONString());
+                dos.writeUTF(writeJSON(state, "").toJSONString());
                 dos.flush();
             }
 
@@ -94,9 +81,27 @@ public class ClientHandler extends Thread {
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private JSONObject writeJSON(int state, String meaning) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("state", String.valueOf(state));
+        jsonObject.put("meaning", meaning);
+        return jsonObject;
+    }
+
+    private JSONObject parse(String res) {
+        JSONObject jsonObject = null;
+        try {
+            JSONParser jsonParser = new JSONParser();
+            jsonObject = (JSONObject) jsonParser.parse(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 
 
