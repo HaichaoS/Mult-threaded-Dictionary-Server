@@ -153,6 +153,17 @@ public class ClientGUI {
         frame.getContentPane().setLayout(groupLayout);
     }
 
-    
+    public Boolean isValid(String command, String word, String meaning) {
+        if (word == "") {
+            JOptionPane.showMessageDialog(frame, "Please Enter a word.", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        } else if (command == "Add" && meaning == "") {
+            JOptionPane.showMessageDialog(frame, "Please Enter the meaning.", "Warning",
+                    JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
 
 }
