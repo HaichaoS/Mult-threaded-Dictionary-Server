@@ -5,7 +5,6 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.net.Socket;
 
 /**
@@ -16,9 +15,6 @@ public class ClientHandler extends Thread {
 
     private Socket s;
     private Server server;
-    private DataInputStream dis;
-    private DataOutputStream dos;
-
 
     // Constructor
     public ClientHandler(Socket s, Server server)
@@ -32,8 +28,9 @@ public class ClientHandler extends Thread {
     {
 
         try {
-            dis = new DataInputStream(s.getInputStream());
-            dos = new DataOutputStream(s.getOutputStream());
+
+        	DataInputStream dis = new DataInputStream(s.getInputStream());;
+            DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
             JSONObject jsonObject = parse(dis.readUTF());
             String command = jsonObject.get("command").toString();
@@ -41,29 +38,29 @@ public class ClientHandler extends Thread {
             String meaning = jsonObject.get("meaning").toString();
             int state = 0;
 
-            if (command == "Search") {
+            if (command.equals("Search")) {
 
-                if (server.isWordExist(word)) {
-                    meaning = server.searchDict(word);
-                    state = 1;
-                } else {
-                    state = 0;
-                }
-                dos.writeUTF(writeJSON(state, meaning).toJSONString());
-               dos.flush();
+            	if (server.isWordExist(word)) {
+            		meaning = server.searchDict(word);
+            		state = 1;
+            	} else {
+            		state = 0;
+            	}
+            	dos.writeUTF(writeJSON(state, meaning).toJSONString());
+            	dos.flush();
 
-            } else if  (command == "Add") {
+            } else if  (command.equals("Add")) {
 
-                if (!server.isWordExist(word)) {
-                    server.addDict(word, meaning);
-                    state = 1;
-                } else {
-                    state = 0;
-                }
-                dos.writeUTF(writeJSON(state, "").toJSONString());
-                dos.flush();
+            	if (!server.isWordExist(word)) {
+            		server.addDict(word, meaning);
+            		state = 1;
+            	} else {
+            		state = 0;
+            	}
+            	dos.writeUTF(writeJSON(state, "").toJSONString());
+            	dos.flush();
 
-            } else if (command == "Remove") {
+            } else if (command.equals("Remove")) {
 
                 if (server.isWordExist(word)) {
                     server.removeDict(word);
@@ -79,8 +76,6 @@ public class ClientHandler extends Thread {
             dos.close();
             s.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,11 +88,11 @@ public class ClientHandler extends Thread {
         return jsonObject;
     }
 
-    private JSONObject parse(String res) {
+    private JSONObject parse(String s) {
         JSONObject jsonObject = null;
         try {
             JSONParser jsonParser = new JSONParser();
-            jsonObject = (JSONObject) jsonParser.parse(res);
+            jsonObject = (JSONObject) jsonParser.parse(s);
         } catch (Exception e) {
             e.printStackTrace();
         }

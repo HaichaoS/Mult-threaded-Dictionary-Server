@@ -6,9 +6,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.Socket;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
+import java.net.*;
 
 /**
  * Haichao Song
@@ -37,11 +35,6 @@ public class ExecuteThread extends Thread  {
 
         try {
 
-            System.out.println("Check I/O Error:");
-            System.out.println(command);
-            System.out.println(word);
-            System.out.println(meaning);
-
             socket = new Socket(address, port);
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
@@ -57,26 +50,22 @@ public class ExecuteThread extends Thread  {
             dis.close();
             dos.close();
 
-        }  catch (SocketTimeoutException e) {
-            state = 2;
-            System.out.println("Timeout!");
         } catch (UnknownHostException e) {
             state = 2;
-            System.out.println("Unknown Host!");
+            e.printStackTrace();
         } catch (IOException e) {
             state = 2;
-            System.out.println("I/O Error!");
-        } finally {
-            if (socket != null) {
-                try {
-                    socket.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         request[0] = String.valueOf(state);
         request[1] = meaning;
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String[] getRequest() {

@@ -61,7 +61,7 @@ public class Server {
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                ClientHandler t = new ClientHandler(s,this);
+                ClientHandler t = new ClientHandler(s, this);
 
                 // Invoking the start() method
                 t.start();
@@ -109,12 +109,12 @@ public class Server {
                 JSONObject res = (JSONObject) dict.get(i);
                 System.out.println("Target Object" + res.toString());
                 if (res.get("Word").toString().equals(word)) {
+                    System.out.println("Get Meaning: " + res.get("Meaning").toString());
                     return res.get("Meaning").toString();
                 }
             }
             return null;
         } else {
-
             return null;
         }
     }

@@ -77,6 +77,7 @@ public class Client {
             meaning = eThreadRequest[1];
 
             System.out.println("Connect Success");
+            System.out.println("State: " + eThreadRequest[0]);
 
         } catch (TimeoutException e) {
             state = 2;
