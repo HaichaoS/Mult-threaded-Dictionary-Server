@@ -22,13 +22,20 @@ public class Server {
     private String path;
     private JSONArray dict;
     private ServerGUI serverGUI;
+    private ServerSocket serverSocket;
 
     public static void main(String[] args) {
-        try {
-            Server server = new Server(args[0], args[1]);
-            server.create();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        if (Integer.parseInt(args[1]) <= 1024 || Integer.parseInt(args[1]) >= 49151) {
+            System.out.println("Invalid Port Number");
+            System.exit(-1);
+        } else {
+            try {
+                Server server = new Server(args[0], args[1]);
+                server.create();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -42,24 +49,19 @@ public class Server {
 
         try {
 
-            ServerSocket ss = new ServerSocket(this.port);
+            serverSocket = new ServerSocket(this.port);
             this.serverGUI = new ServerGUI(this);
             serverGUI.getFrame().setVisible(true);
 
             while(true) {
 
                 // socket object to receive incoming client requests
-                Socket s = ss.accept();
+                Socket s = serverSocket.accept();
                 System.out.println("A new client is connected : " + s);
-
-                // obtaining input and out streams
-//                DataInputStream dis = new DataInputStream(s.getInputStream());
-//                DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                Thread t = new ClientHandler(s,this);
+                ClientHandler t = new ClientHandler(s,this);
 
                 // Invoking the start() method
                 t.start();
@@ -71,6 +73,7 @@ public class Server {
     }
 
     public JSONArray readDic(String path) {
+
         JSONParser jsonParser = new JSONParser();
         JSONArray dictList = new JSONArray();
 
@@ -81,7 +84,6 @@ public class Server {
 
             dictList = (JSONArray) obj;
             System.out.println(dictList);
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -94,23 +96,31 @@ public class Server {
 
     }
 
+
+    public boolean isWordExist(String word) {
+        return dict.toString().contains("\"Word\":\""+word+"\"");
+    }
+
     public String searchDict(String word) {
-        if (dict.contains(word)) {
+
+        if (isWordExist(word)) {
             System.out.println("Server check");
-            return null;
-        } else {
             for (int i = 0 ; i < dict.size(); i ++) {
                 JSONObject res = (JSONObject) dict.get(i);
+                System.out.println("Target Object" + res.toString());
                 if (res.get("Word").toString().equals(word)) {
                     return res.get("Meaning").toString();
                 }
             }
             return null;
+        } else {
+
+            return null;
         }
     }
 
     public boolean addDict(String word, String meaning) {
-        if (dict.contains(word)) {
+        if (isWordExist(word)) {
             System.out.println("Server check");
             return false;
         } else {
@@ -118,7 +128,7 @@ public class Server {
             wordObject.put("Word", word);
             wordObject.put("Meaning", meaning);
 
-            dict.add(wordObject.toJSONString());
+            dict.add(wordObject);
 
             try (FileWriter file = new FileWriter(path)) {
 
@@ -133,7 +143,7 @@ public class Server {
     }
 
     public boolean removeDict(String word) {
-        if (dict.contains(word)) {
+        if (isWordExist(word)) {
             for (int i = 0 ; i < dict.size(); i ++) {
                 JSONObject res = (JSONObject) dict.get(i);
                 if (res.get("Word").toString().equals(word)) {
