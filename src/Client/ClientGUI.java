@@ -44,16 +44,20 @@ public class ClientGUI {
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 word = text.getText();
-                String[] request = client.search(word);
-
-                System.out.println("Get Search State: " + request[0]);
-
-                if (Integer.parseInt(request[0]) == 0 ) {
-                    JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
-                            JOptionPane.WARNING_MESSAGE);
-                } else {
-                    meaningPane.setText(request[1]);
+                if (isValid("Search", word, "")) {
+                    String[] request = client.search(word);
+                    int state = Integer.parseInt(request[0]);
+                    if (state == 0 ) {
+                        JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
+                                JOptionPane.WARNING_MESSAGE);
+                    } else if (state == 2) {
+                        JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
+                                JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        meaningPane.setText(request[1]);
+                    }
                 }
             }
         });
@@ -64,19 +68,23 @@ public class ClientGUI {
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
                 mean = meaningPane.getText();
-                String[] request = client.add(word, mean);
-                int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
-                        "Confirm Window", JOptionPane.YES_NO_OPTION);
-                if (confirm == JOptionPane.YES_OPTION) {
+                if (isValid("Add", word, mean)) {
+                    String[] request = client.add(word, mean);
+                    int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
+                            "Confirm Window", JOptionPane.YES_NO_OPTION);
+                    if (confirm == JOptionPane.YES_OPTION) {
 
-                    System.out.println("Get Add State: " + request[0]);
-
-                    if (Integer.parseInt(request[0]) == 0 ) {
-                        JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
-                                JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(frame, "Add Success.", "Tips",
-                                JOptionPane.INFORMATION_MESSAGE);
+                        int state = Integer.parseInt(request[0]);
+                        if ( state == 0 ) {
+                            JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
+                                    JOptionPane.WARNING_MESSAGE);
+                        } else if (state == 2) {
+                            JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
+                                    JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Add Success.", "Tips",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
                 }
             }
@@ -87,21 +95,27 @@ public class ClientGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
-                String[] request = client.remove(word);
-                int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
-                        "Confirm Window", JOptionPane.YES_NO_OPTION);
-                if (confirm == JOptionPane.YES_OPTION) {
+                if (isValid("Remove", word, "")) {
+                    String[] request = client.remove(word);
+                    int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
+                            "Confirm Window", JOptionPane.YES_NO_OPTION);
+                    if (confirm == JOptionPane.YES_OPTION) {
 
-                    System.out.println("Get Remove State: " + request[0]);
+                        int state = Integer.parseInt(request[0]);
 
-                    if (Integer.parseInt(request[0]) == 0 ) {
-                        JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
-                                JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(frame, "Remove Success.", "Tips",
-                                JOptionPane.INFORMATION_MESSAGE);
+                        if (state == 0 ) {
+                            JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
+                                    JOptionPane.WARNING_MESSAGE);
+                        } else if (state == 2) {
+                            JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
+                                    JOptionPane.WARNING_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(frame, "Remove Success.", "Tips",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        }
                     }
                 }
+
             }
         });
 
