@@ -15,12 +15,14 @@ public class ClientHandler extends Thread {
 
     private Socket s;
     private Server server;
+    private Dict dict;
 
     // Constructor
-    public ClientHandler(Socket s, Server server)
+    public ClientHandler(Socket s, Server server, Dict dict)
     {
         this.s = s;
         this.server = server;
+        this.dict = dict;
     }
 
     @Override
@@ -40,8 +42,8 @@ public class ClientHandler extends Thread {
 
             if (command.equals("Search")) {
 
-            	if (server.isWordExist(word)) {
-            		meaning = server.searchDict(word);
+            	if (dict.isWordExist(word)) {
+            		meaning = dict.searchDict(word);
             		state = 1;
             	} else {
             		state = 0;
@@ -51,8 +53,8 @@ public class ClientHandler extends Thread {
 
             } else if  (command.equals("Add")) {
 
-            	if (!server.isWordExist(word)) {
-            		server.addDict(word, meaning);
+            	if (!dict.isWordExist(word)) {
+                    dict.addDict(word, meaning);
             		state = 1;
             	} else {
             		state = 0;
@@ -62,8 +64,8 @@ public class ClientHandler extends Thread {
 
             } else if (command.equals("Remove")) {
 
-                if (server.isWordExist(word)) {
-                    server.removeDict(word);
+                if (dict.isWordExist(word)) {
+                    dict.removeDict(word);
                     state = 1;
                 } else {
                     state = 0;
