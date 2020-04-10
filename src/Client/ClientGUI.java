@@ -73,11 +73,10 @@ public class ClientGUI {
                 mean = meaningPane.getText();
                 syn = synonymPane.getText();
                 if (isValid("Add", word, mean)) {
-                    String[] request = client.add(word, mean, syn);
                     int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
                             "Confirm Window", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
-
+                        String[] request = client.add(word, mean, syn);
                         int state = Integer.parseInt(request[0]);
                         if ( state == 0 ) {
                             JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
@@ -100,11 +99,11 @@ public class ClientGUI {
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
                 if (isValid("Remove", word, "")) {
-                    String[] request = client.remove(word);
+
                     int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
                             "Confirm Window", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
-
+                        String[] request = client.remove(word);
                         int state = Integer.parseInt(request[0]);
 
                         if (state == 0 ) {
