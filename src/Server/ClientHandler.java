@@ -14,12 +14,14 @@ import java.net.Socket;
 public class ClientHandler extends Thread {
 
     private Socket s;
+    private Server server;
     private Dict dict;
 
     // Constructor
-    public ClientHandler(Socket s, Dict dict)
+    public ClientHandler(Socket s, Server server, Dict dict)
     {
         this.s = s;
+        this.server =server;
         this.dict = dict;
     }
 
@@ -38,6 +40,7 @@ public class ClientHandler extends Thread {
             String meaning = jsonObject.get("meaning").toString();
             String synonym = jsonObject.get("synonym").toString();
             int state = 0;
+            server.printLog("Request\n  Command: " + command + "\n  Word: " + word);
 
             if (command.equals("Search")) {
 
@@ -45,8 +48,10 @@ public class ClientHandler extends Thread {
             		meaning = dict.searchDict(word).get(0);
                     synonym = dict.searchDict(word).get(1);
             		state = 1;
+            		server.printLog("Search Success");
             	} else {
             		state = 0;
+            		server.printLog("Search Fail");
             	}
             	dos.writeUTF(writeJSON(state, meaning, synonym).toJSONString());
             	dos.flush();
@@ -56,8 +61,10 @@ public class ClientHandler extends Thread {
             	if (!dict.isWordExist(word)) {
                     dict.addDict(word, meaning, synonym);
             		state = 1;
+            		server.printLog("Add Success");
             	} else {
             		state = 0;
+            		server.printLog("Add Fail");
             	}
             	dos.writeUTF(writeJSON(state, "", "").toJSONString());
             	dos.flush();
@@ -67,8 +74,10 @@ public class ClientHandler extends Thread {
                 if (dict.isWordExist(word)) {
                     dict.removeDict(word);
                     state = 1;
+                    server.printLog("Remove Success");
                 } else {
                     state = 0;
+                    server.printLog("Remove Fail");
                 }
                 dos.writeUTF(writeJSON(state, "", "").toJSONString());
                 dos.flush();
