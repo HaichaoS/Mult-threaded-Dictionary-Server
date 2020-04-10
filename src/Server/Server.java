@@ -52,7 +52,7 @@ public class Server {
                 System.out.println("Assigning new thread for this client");
 
                 // create a new thread object
-                ClientHandler t = new ClientHandler(s, this, dict);
+                ClientHandler t = new ClientHandler(s, dict);
 
                 // Invoking the start() method
                 t.start();

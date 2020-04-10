@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Haichao Song
@@ -45,7 +46,9 @@ public class Dict {
         return dict.toString().contains("\"Word\":\""+word+"\"");
     }
 
-    public String searchDict(String word) {
+    public ArrayList<String> searchDict(String word) {
+
+        ArrayList<String> result = new ArrayList<>();
 
         if (isWordExist(word)) {
             System.out.println("Server check");
@@ -54,7 +57,9 @@ public class Dict {
                 System.out.println("Target Object" + res.toString());
                 if (res.get("Word").toString().equals(word)) {
                     System.out.println("Get Meaning: " + res.get("Meaning").toString());
-                    return res.get("Meaning").toString();
+                    result.add(res.get("Meaning").toString());
+                    result.add(res.get("Synonym").toString());
+                    return result;
                 }
             }
             return null;
@@ -63,7 +68,7 @@ public class Dict {
         }
     }
 
-    public boolean addDict(String word, String meaning) {
+    public boolean addDict(String word, String meaning, String synonym) {
         if (isWordExist(word)) {
             System.out.println("Server check");
             return false;
@@ -71,6 +76,7 @@ public class Dict {
             JSONObject wordObject = new JSONObject();
             wordObject.put("Word", word);
             wordObject.put("Meaning", meaning);
+            wordObject.put("Synonym", synonym);
 
             dict.add(wordObject);
 

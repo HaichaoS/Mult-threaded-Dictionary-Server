@@ -44,28 +44,28 @@ public class Client {
     }
 
     public String[] search(String word) {
-        String[] request = execute("Search", word, "");
+        String[] request = execute("Search", word, "", "");
         return request;
     }
 
-    public String[] add(String word, String meaning) {
-        String[] request = execute("Add", word, meaning);
+    public String[] add(String word, String meaning, String synonym) {
+        String[] request = execute("Add", word, meaning, synonym);
         return request;
     }
 
     public String[] remove(String word) {
-        String[] request = execute("Remove", word, "");
+        String[] request = execute("Remove", word, "", "");
         return request;
     }
 
-    public String[] execute(String command, String word, String meaning) {
+    public String[] execute(String command, String word, String meaning, String synonym) {
 
         int state = 0;
-        printLog(command, word, meaning);
+        printLog(command, word, meaning, synonym);
 
         try {
 
-            ExecuteThread eThread = new ExecuteThread(address, port, command, word, meaning);
+            ExecuteThread eThread = new ExecuteThread(address, port, command, word, meaning, synonym);
             eThread.start();
             eThread.join(2000);
             if (eThread.isAlive()) {
@@ -75,6 +75,7 @@ public class Client {
             String[] eThreadRequest = eThread.getRequest();
             state = Integer.parseInt(eThreadRequest[0]);
             meaning = eThreadRequest[1];
+            synonym = eThreadRequest[2];
 
             System.out.println("Connect Success");
             System.out.println("State: " + eThreadRequest[0]);
@@ -86,7 +87,7 @@ public class Client {
             e.printStackTrace();
         }
         printResponse(state, meaning);
-        String[] res = {String.valueOf(state), meaning};
+        String[] res = {String.valueOf(state), meaning, synonym};
         return res;
 
     }
@@ -103,10 +104,11 @@ public class Client {
         System.out.println("  Meaning: " + meaning);
     }
 
-    public void printLog(String command, String word, String meaning) {
+    public void printLog(String command, String word, String meaning, String synonym) {
         System.out.println("Command: " + command);
         System.out.println("Word: " + word);
         System.out.println("Meaning: " + meaning);
+        System.out.println("Synonym:" + synonym);
     }
 
 }

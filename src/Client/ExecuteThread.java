@@ -14,18 +14,19 @@ import java.net.*;
  */
 public class ExecuteThread extends Thread  {
 
-    private String address, command, word, meaning;
+    private String address, command, word, meaning, synonym;
     private int port, state;
-    private String[] request = {"",""};
+    private String[] request = {"","",""};
     private Socket socket;
 
-    public ExecuteThread(String address, int port, String command, String word, String meaning) {
+    public ExecuteThread(String address, int port, String command, String word, String meaning, String synonym) {
 
         this.address = address;
         this.port = port;
         this.command = command;
         this.word = word;
         this.meaning = meaning;
+        this.synonym = synonym;
         this.state = 0;
         this.socket = null;
     }
@@ -46,6 +47,7 @@ public class ExecuteThread extends Thread  {
             state = Integer.parseInt(jsonObject.get("state").toString());
             if (state == 1) {
                 meaning = (String) jsonObject.get("meaning");
+                synonym = (String) jsonObject.get("synonym");
             }
             dis.close();
             dos.close();
@@ -61,6 +63,7 @@ public class ExecuteThread extends Thread  {
         }
         request[0] = String.valueOf(state);
         request[1] = meaning;
+        request[2] = synonym;
         try {
             socket.close();
         } catch (IOException e) {
@@ -77,6 +80,7 @@ public class ExecuteThread extends Thread  {
         jsonObject.put("command", command);
         jsonObject.put("word", word);
         jsonObject.put("meaning", meaning);
+        jsonObject.put("synonym", synonym);
         return jsonObject;
     }
 

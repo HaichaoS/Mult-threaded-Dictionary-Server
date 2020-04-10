@@ -14,14 +14,12 @@ import java.net.Socket;
 public class ClientHandler extends Thread {
 
     private Socket s;
-    private Server server;
     private Dict dict;
 
     // Constructor
-    public ClientHandler(Socket s, Server server, Dict dict)
+    public ClientHandler(Socket s, Dict dict)
     {
         this.s = s;
-        this.server = server;
         this.dict = dict;
     }
 
@@ -38,28 +36,30 @@ public class ClientHandler extends Thread {
             String command = jsonObject.get("command").toString();
             String word = jsonObject.get("word").toString();
             String meaning = jsonObject.get("meaning").toString();
+            String synonym = jsonObject.get("synonym").toString();
             int state = 0;
 
             if (command.equals("Search")) {
 
             	if (dict.isWordExist(word)) {
-            		meaning = dict.searchDict(word);
+            		meaning = dict.searchDict(word).get(0);
+                    synonym = dict.searchDict(word).get(1);
             		state = 1;
             	} else {
             		state = 0;
             	}
-            	dos.writeUTF(writeJSON(state, meaning).toJSONString());
+            	dos.writeUTF(writeJSON(state, meaning, synonym).toJSONString());
             	dos.flush();
 
             } else if  (command.equals("Add")) {
 
             	if (!dict.isWordExist(word)) {
-                    dict.addDict(word, meaning);
+                    dict.addDict(word, meaning, synonym);
             		state = 1;
             	} else {
             		state = 0;
             	}
-            	dos.writeUTF(writeJSON(state, "").toJSONString());
+            	dos.writeUTF(writeJSON(state, "", "").toJSONString());
             	dos.flush();
 
             } else if (command.equals("Remove")) {
@@ -70,7 +70,7 @@ public class ClientHandler extends Thread {
                 } else {
                     state = 0;
                 }
-                dos.writeUTF(writeJSON(state, "").toJSONString());
+                dos.writeUTF(writeJSON(state, "", "").toJSONString());
                 dos.flush();
             }
 
@@ -83,10 +83,11 @@ public class ClientHandler extends Thread {
         }
     }
 
-    private JSONObject writeJSON(int state, String meaning) {
+    private JSONObject writeJSON(int state, String meaning, String synonym) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("state", String.valueOf(state));
         jsonObject.put("meaning", meaning);
+        jsonObject.put("synonym", synonym);
         return jsonObject;
     }
 

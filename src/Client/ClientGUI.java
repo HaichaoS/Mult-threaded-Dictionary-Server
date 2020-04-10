@@ -14,7 +14,7 @@ public class ClientGUI {
     private JFrame frame;
     private JTextField text;
     private Client client;
-    private String word, mean;
+    private String word, mean, syn;
 
     public JFrame getFrame() {
         return frame;
@@ -59,6 +59,7 @@ public class ClientGUI {
                                 JOptionPane.WARNING_MESSAGE);
                     } else {
                         meaningPane.setText(request[1]);
+                        synonymPane.setText(request[2]);
                     }
                 }
             }
@@ -70,8 +71,9 @@ public class ClientGUI {
             public void actionPerformed(ActionEvent e) {
                 word = text.getText();
                 mean = meaningPane.getText();
+                syn = synonymPane.getText();
                 if (isValid("Add", word, mean)) {
-                    String[] request = client.add(word, mean);
+                    String[] request = client.add(word, mean, syn);
                     int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
                             "Confirm Window", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
@@ -130,6 +132,7 @@ public class ClientGUI {
                 if (confirm == JOptionPane.YES_OPTION) {
                     text.setText("");
                     meaningPane.setText("");
+                    synonymPane.setText("");
                 }
             }
         });
