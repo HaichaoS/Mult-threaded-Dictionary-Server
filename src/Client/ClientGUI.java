@@ -38,6 +38,8 @@ public class ClientGUI {
         JScrollPane scrollPane = new JScrollPane();
         JLabel target = new JLabel("Word:");
         JTextArea meaningPane = new JTextArea();
+        JLabel synonym = new JLabel("Synonym:");
+        JTextArea synonymPane = new JTextArea();
 
 
         JButton search = new JButton("SEARCH");
@@ -119,7 +121,7 @@ public class ClientGUI {
             }
         });
 
-        JButton clear = new JButton("Clear");
+        JButton clear = new JButton("CLEAR");
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -150,6 +152,9 @@ public class ClientGUI {
                                 .addComponent(meaning, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
+                                .addComponent(synonym, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(groupLayout.createSequentialGroup()
+                                .addGap(5)
                                 .addComponent(add, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                 .addGap(5)
                                 .addComponent(remove, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
@@ -158,7 +163,13 @@ public class ClientGUI {
                                 .addGap(5))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
-                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                                .addComponent(synonymPane, GroupLayout.PREFERRED_SIZE, 420, Short.MAX_VALUE)
+                                .addGap(5))
+                        .addGroup(groupLayout.createSequentialGroup()
+                                .addGap(5)
+                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                                .addGap(5))
+
         );
 
         groupLayout.setVerticalGroup(
@@ -173,6 +184,10 @@ public class ClientGUI {
                                 .addComponent(meaning, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
                                 .addGap(5)
                                 .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                .addGap(5)
+                                .addComponent(synonym, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+                                .addGap(5)
+                                .addComponent(synonymPane, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
                                 .addGap(5)
                                 .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(add, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
