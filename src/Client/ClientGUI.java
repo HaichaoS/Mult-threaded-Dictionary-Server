@@ -119,6 +119,19 @@ public class ClientGUI {
             }
         });
 
+        JButton clear = new JButton("Clear");
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Clear the text?",
+                        "Confirm Window", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    text.setText("");
+                    meaningPane.setText("");
+                }
+            }
+        });
+
         scrollPane.setViewportView(meaningPane);
         meaningPane.setLineWrap(true);
         GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -138,8 +151,10 @@ public class ClientGUI {
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
                                 .addComponent(add, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addGap(10)
+                                .addGap(5)
                                 .addComponent(remove, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addGap(5)
+                                .addComponent(clear, GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                 .addGap(5))
                         .addGroup(groupLayout.createSequentialGroup()
                                 .addGap(5)
@@ -161,7 +176,8 @@ public class ClientGUI {
                                 .addGap(5)
                                 .addGroup(groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(add, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(remove, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(remove, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(clear, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
                                 .addGap(8))
         );
         frame.getContentPane().setLayout(groupLayout);
