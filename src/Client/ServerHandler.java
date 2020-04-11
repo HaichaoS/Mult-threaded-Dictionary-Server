@@ -12,14 +12,14 @@ import java.net.*;
  * Haichao Song
  * Description:
  */
-public class ExecuteThread extends Thread  {
+public class ServerHandler extends Thread  {
 
     private String address, command, word, meaning, synonym;
     private int port, state;
     private String[] request = {"","",""};
     private Socket socket;
 
-    public ExecuteThread(String address, int port, String command, String word, String meaning, String synonym) {
+    public ServerHandler(String address, int port, String command, String word, String meaning, String synonym) {
 
         this.address = address;
         this.port = port;
