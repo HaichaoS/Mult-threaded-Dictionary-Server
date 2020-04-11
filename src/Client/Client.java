@@ -6,8 +6,6 @@ package Client;
  */
 public class Client {
 
-    private String address;
-    private int port;
     private ClientGUI clientGUI;
     private OperationHandler operationHandler;
 
@@ -28,8 +26,6 @@ public class Client {
     }
 
     public Client(String address, int port) {
-        this.address = address;
-        this.port = port;
         this.clientGUI = null;
         this.operationHandler = new OperationHandler(address, port);
 
