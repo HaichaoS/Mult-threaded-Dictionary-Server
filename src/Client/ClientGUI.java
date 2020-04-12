@@ -13,15 +13,15 @@ public class ClientGUI {
 
     private JFrame frame;
     private JTextField text;
-    private OperationHandler operationHandler;
+    private RequestHandler requestHandler;
     private String word, mean, syn;
 
     public JFrame getFrame() {
         return frame;
     }
 
-    public ClientGUI (OperationHandler operationHandler) {
-        this.operationHandler = operationHandler;
+    public ClientGUI (RequestHandler requestHandler) {
+        this.requestHandler = requestHandler;
         create();
     }
 
@@ -49,7 +49,7 @@ public class ClientGUI {
 
                 word = text.getText();
                 if (isValid("Search", word, "")) {
-                    String[] request = operationHandler.search(word);
+                    String[] request = requestHandler.search(word);
                     int state = Integer.parseInt(request[0]);
                     if (state == 0 ) {
                         JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
@@ -76,7 +76,7 @@ public class ClientGUI {
                     int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Add a new word?",
                             "Confirm Window", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
-                        String[] request = operationHandler.add(word, mean, syn);
+                        String[] request = requestHandler.add(word, mean, syn);
                         int state = Integer.parseInt(request[0]);
                         if ( state == 0 ) {
                             JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
@@ -103,7 +103,7 @@ public class ClientGUI {
                     int confirm = JOptionPane.showConfirmDialog(frame,  "Confirm to Remove the word?",
                             "Confirm Window", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
-                        String[] request = operationHandler.remove(word);
+                        String[] request = requestHandler.remove(word);
                         int state = Integer.parseInt(request[0]);
 
                         if (state == 0 ) {

@@ -6,14 +6,16 @@ import java.util.concurrent.TimeoutException;
  * Team: W9-5
  * Description:
  */
-public class OperationHandler {
+public class RequestHandler {
 
     private String address;
     private int port;
+    private ServerHandler serverHandler;
 
-    public OperationHandler(String address, int port) {
+    public RequestHandler(String address, int port) {
         this.address = address;
         this.port = port;
+        this.serverHandler = null;
     }
 
     public String[] search(String word) {
@@ -38,9 +40,9 @@ public class OperationHandler {
 
         try {
 
-            ServerHandler serverHandler = new ServerHandler(address, port, command, word, meaning, synonym);
+            serverHandler = new ServerHandler(address, port, command, word, meaning, synonym);
             serverHandler.start();
-            serverHandler.join(2000);
+            serverHandler.join(5000);
             if (serverHandler.isAlive()) {
                 serverHandler.interrupt();
                 throw new TimeoutException();

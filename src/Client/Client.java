@@ -7,7 +7,7 @@ package Client;
 public class Client {
 
     private ClientGUI clientGUI;
-    private OperationHandler operationHandler;
+    private RequestHandler requestHandler;
 
     public static void main(String[] args) {
         try {
@@ -27,13 +27,13 @@ public class Client {
 
     public Client(String address, int port) {
         this.clientGUI = null;
-        this.operationHandler = new OperationHandler(address, port);
+        this.requestHandler = new RequestHandler(address, port);
 
     }
 
     public void create() {
         try {
-            this.clientGUI = new ClientGUI(operationHandler);
+            this.clientGUI = new ClientGUI(requestHandler);
             clientGUI.getFrame().setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
