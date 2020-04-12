@@ -1,5 +1,6 @@
 package Client;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -47,13 +48,13 @@ public class RequestHandler {
                 serverHandler.interrupt();
                 throw new TimeoutException();
             }
-            String[] eThreadRequest = serverHandler.getRequest();
-            state = Integer.parseInt(eThreadRequest[0]);
-            meaning = eThreadRequest[1];
-            synonym = eThreadRequest[2];
+            ArrayList<String> request = serverHandler.getRequest();
+            state = Integer.parseInt(request.get(0));
+            meaning = request.get(1);
+            synonym = request.get(2);
 
             System.out.println("Connect Success");
-            System.out.println("State: " + eThreadRequest[0]);
+            System.out.println("State: " + request.get(0));
 
         } catch (TimeoutException e) {
             state = 2;

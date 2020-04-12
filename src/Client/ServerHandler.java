@@ -6,7 +6,9 @@ import org.json.simple.parser.JSONParser;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.*;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * Haichao Song
@@ -16,7 +18,7 @@ public class ServerHandler extends Thread  {
 
     private String address, command, word, meaning, synonym;
     private int port, state;
-    private String[] request = {"","",""};
+    private ArrayList<String> request;
     private Socket socket;
 
     public ServerHandler(String address, int port, String command, String word, String meaning, String synonym) {
@@ -29,6 +31,7 @@ public class ServerHandler extends Thread  {
         this.synonym = synonym;
         this.state = 0;
         this.socket = null;
+        this.request = new ArrayList<>();
     }
 
     @Override
@@ -61,9 +64,9 @@ public class ServerHandler extends Thread  {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request[0] = String.valueOf(state);
-        request[1] = meaning;
-        request[2] = synonym;
+        request.add(String.valueOf(state));
+        request.add(meaning);
+        request.add(synonym);
         try {
             socket.close();
         } catch (IOException e) {
@@ -71,7 +74,7 @@ public class ServerHandler extends Thread  {
         }
     }
 
-    public String[] getRequest() {
+    public ArrayList<String> getRequest() {
         return request;
     }
 
