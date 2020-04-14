@@ -93,7 +93,7 @@ public class ServerHandler extends Thread  {
         jsonObject.put("synonym", synonym);
         return jsonObject;
     }
-    
+
     private JSONObject parse(String s) {
         JSONObject jsonObject = null;
         try {

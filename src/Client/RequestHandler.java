@@ -40,7 +40,7 @@ public class RequestHandler {
     public String[] execute(String command, String word, String meaning, String synonym) {
 
         int state = OPERATION_FAIL;
-        printLog(command, word, meaning, synonym);
+        printRequest(command, word, meaning, synonym);
 
         try {
 
@@ -73,8 +73,8 @@ public class RequestHandler {
 
     }
 
-    /* show information on the server GUI */
-    public void printLog(String command, String word, String meaning, String synonym) {
+    /* show information for client request */
+    public void printRequest(String command, String word, String meaning, String synonym) {
         System.out.println("Command: " + command);
         System.out.println("Word: " + word);
         System.out.println("Meaning: " + meaning);

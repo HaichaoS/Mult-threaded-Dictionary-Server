@@ -5,7 +5,7 @@ import java.net.Socket;
 
 /**
  * Haichao Song
- * Description:
+ * Description: the server controller that is responsible for create all other components and control their jobs.
  */
 public class Server {
 
@@ -17,6 +17,7 @@ public class Server {
 
     public static void main(String[] args) {
 
+        // check port number
         if (Integer.parseInt(args[0]) <= 1024 || Integer.parseInt(args[0]) >= 49151) {
             System.out.println("Invalid Port Number");
             System.exit(-1);
@@ -64,6 +65,7 @@ public class Server {
     }
 
 
+    /* print information on server GUI log */
     public void printLog(String s) {
         System.out.println(s);
         if (serverGUI != null) serverGUI.getTextArea().append(s + '\n');
