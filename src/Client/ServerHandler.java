@@ -12,7 +12,11 @@ import java.util.ArrayList;
 
 /**
  * Haichao Song
- * Description:
+ * Description: the class that is responsible for
+ * 1) send the request, side which contains information about the command and the word in JSON format, to server side.
+ * 2) Receive the responses which contains the operation state and word information in JSON form,
+ * from the server side and read them
+ * 3) handle all kinds of failures.
  */
 public class ServerHandler extends Thread  {
 
@@ -20,6 +24,8 @@ public class ServerHandler extends Thread  {
     private int port, state;
     private ArrayList<String> request;
     private Socket socket;
+    private final int SUCCESS = 1;
+    private final int CONNECTION_FAIL = 2;
 
     public ServerHandler(String address, int port, String command, String word, String meaning, String synonym) {
 
@@ -39,16 +45,16 @@ public class ServerHandler extends Thread  {
 
         try {
 
+            // send the request and get the response from server
             socket = new Socket(address, port);
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-
             dos.writeUTF(writeJSON().toJSONString());
             dos.flush();
             String result = dis.readUTF();
             JSONObject jsonObject = parse(result);
             state = Integer.parseInt(jsonObject.get("state").toString());
-            if (state == 1) {
+            if (state == SUCCESS) {
                 meaning = (String) jsonObject.get("meaning");
                 synonym = (String) jsonObject.get("synonym");
             }
@@ -56,10 +62,10 @@ public class ServerHandler extends Thread  {
             dos.close();
 
         } catch (UnknownHostException e) {
-            state = 2;
+            state = CONNECTION_FAIL;
             e.printStackTrace();
         } catch (IOException e) {
-            state = 2;
+            state = CONNECTION_FAIL;
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,6 +84,7 @@ public class ServerHandler extends Thread  {
         return request;
     }
 
+    /* write JSON object for request */
     private JSONObject writeJSON() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("command", command);
@@ -86,7 +93,7 @@ public class ServerHandler extends Thread  {
         jsonObject.put("synonym", synonym);
         return jsonObject;
     }
-
+    
     private JSONObject parse(String s) {
         JSONObject jsonObject = null;
         try {
