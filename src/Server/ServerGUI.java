@@ -6,7 +6,7 @@ import java.net.InetAddress;
 
 /**
  * Haichao Song
- * Description:
+ * Description: The server GUI shows address, port, dictionary path, server operations and their status on the log.
  */
 public class ServerGUI {
 
@@ -48,6 +48,7 @@ public class ServerGUI {
         textArea.setEditable(false);
         scrollPane.setViewportView(textArea);
 
+        // Render the server GUI
         GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
         groupLayout.setHorizontalGroup(
                 groupLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
