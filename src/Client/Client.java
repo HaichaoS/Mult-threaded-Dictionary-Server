@@ -2,7 +2,8 @@ package Client;
 
 /**
  * Haichao Song
- * Description:
+ * Description: The controller class that is responsible for create all other
+ * components and control their jobs.
  */
 public class Client {
 
@@ -12,6 +13,7 @@ public class Client {
     public static void main(String[] args) {
         try {
 
+            // Check port number
             if (Integer.parseInt(args[1]) <= 1024 || Integer.parseInt(args[1]) >= 49151) {
                 System.out.println("Invalid Port Number");
                 System.exit(-1);

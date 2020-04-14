@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 
 /**
  * Haichao Song
- * Description:
+ * Description: the GUI allows users to search, add and remove words in the dictionary and
+ * shows different Message dialogs according to operations and failures.
  */
 public class ClientGUI {
 
@@ -15,6 +16,9 @@ public class ClientGUI {
     private JTextField text;
     private RequestHandler requestHandler;
     private String word, mean, syn;
+    private final int SUCCEED = 1;
+    private final int OPERATION_FAIL = 0;
+    private final int CONNECTION_FAIL = 2;
 
     public JFrame getFrame() {
         return frame;
@@ -42,6 +46,7 @@ public class ClientGUI {
         JTextArea synonymPane = new JTextArea();
 
 
+        // Search button and its listener
         JButton search = new JButton("SEARCH");
         search.addActionListener(new ActionListener() {
             @Override
@@ -51,10 +56,10 @@ public class ClientGUI {
                 if (isValid("Search", word, "")) {
                     String[] request = requestHandler.search(word);
                     int state = Integer.parseInt(request[0]);
-                    if (state == 0 ) {
+                    if (state == OPERATION_FAIL ) {
                         JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
                                 JOptionPane.WARNING_MESSAGE);
-                    } else if (state == 2) {
+                    } else if (state == CONNECTION_FAIL) {
                         JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
                                 JOptionPane.WARNING_MESSAGE);
                     } else {
@@ -65,6 +70,7 @@ public class ClientGUI {
             }
         });
 
+        // Add button and its listener
         JButton add = new JButton("ADD");
         add.addActionListener(new ActionListener() {
             @Override
@@ -78,10 +84,10 @@ public class ClientGUI {
                     if (confirm == JOptionPane.YES_OPTION) {
                         String[] request = requestHandler.add(word, mean, syn);
                         int state = Integer.parseInt(request[0]);
-                        if ( state == 0 ) {
+                        if ( state == OPERATION_FAIL ) {
                             JOptionPane.showMessageDialog(frame, "Word Exist.", "Warning",
                                     JOptionPane.WARNING_MESSAGE);
-                        } else if (state == 2) {
+                        } else if (state == CONNECTION_FAIL) {
                             JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
                                     JOptionPane.WARNING_MESSAGE);
                         } else {
@@ -93,6 +99,7 @@ public class ClientGUI {
             }
         });
 
+        // Remove button and its listener
         JButton remove = new JButton("REMOVE");
         remove.addActionListener(new ActionListener() {
             @Override
@@ -106,10 +113,10 @@ public class ClientGUI {
                         String[] request = requestHandler.remove(word);
                         int state = Integer.parseInt(request[0]);
 
-                        if (state == 0 ) {
+                        if (state == OPERATION_FAIL ) {
                             JOptionPane.showMessageDialog(frame, "Word Not Exist.", "Warning",
                                     JOptionPane.WARNING_MESSAGE);
-                        } else if (state == 2) {
+                        } else if (state == CONNECTION_FAIL) {
                             JOptionPane.showMessageDialog(frame, "Connection Fail.", "Warning",
                                     JOptionPane.WARNING_MESSAGE);
                         } else {
@@ -122,6 +129,7 @@ public class ClientGUI {
             }
         });
 
+        // Clear button and its listener
         JButton clear = new JButton("CLEAR");
         clear.addActionListener(new ActionListener() {
             @Override
@@ -136,6 +144,7 @@ public class ClientGUI {
             }
         });
 
+        // Render the GUI
         scrollPane.setViewportView(meaningPane);
         meaningPane.setLineWrap(true);
         GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -200,6 +209,7 @@ public class ClientGUI {
         frame.getContentPane().setLayout(groupLayout);
     }
 
+    /* Check if user entered the word or meaning in operation */
     public Boolean isValid(String command, String word, String meaning) {
         if (word == "") {
             JOptionPane.showMessageDialog(frame, "Please Enter a word.", "Warning",
