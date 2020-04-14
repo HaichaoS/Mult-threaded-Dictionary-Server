@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6960cbd-2c7d-46e1-9df1-79db6f08f3a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Server/Dict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Dict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ClientHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,18 +25,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Client/RequestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-39">
-              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/ServerGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="583">
@@ -46,24 +34,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Server/Dict.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="99" column="61" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1297#1298#0" expanded="true" />
-                <element signature="e#1369#1370#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
+            <state relative-caret-position="1287">
+              <caret line="100" column="33" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,7 +77,6 @@
         <option value="$PROJECT_DIR$/src/StateCode/StateCode.java" />
         <option value="$PROJECT_DIR$/src/Server/Dictionary.java" />
         <option value="$PROJECT_DIR$/src/Server/DictRequestHandlerThread.java" />
-        <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/Client/ExecuteThread.java" />
         <option value="$PROJECT_DIR$/src/Client/OperationHandler.java" />
         <option value="$PROJECT_DIR$/src/Client/Client.java" />
@@ -112,6 +85,7 @@
         <option value="$PROJECT_DIR$/src/Server/Server.java" />
         <option value="$PROJECT_DIR$/src/Client/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/Dict.java" />
+        <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
       </list>
     </option>
   </component>
@@ -281,12 +255,12 @@
       <workItem from="1586577899936" duration="1514000" />
       <workItem from="1586596759190" duration="1144000" />
       <workItem from="1586658902147" duration="1153000" />
-      <workItem from="1586836544648" duration="2041000" />
+      <workItem from="1586836544648" duration="2288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82824000" />
+    <option name="totallyTimeSpent" value="83071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="820" extended-state="6" />
@@ -426,16 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/ClientHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
@@ -460,6 +424,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server/Dict.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="99" column="61" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/ServerGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="583">
@@ -467,14 +443,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Server/Dict.java">
+    <entry file="file://$PROJECT_DIR$/src/Server/ClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="99" column="61" selection-start-line="99" selection-start-column="61" selection-end-line="99" selection-end-column="61" />
+        <state relative-caret-position="1287">
+          <caret line="100" column="33" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
           </folding>
         </state>
       </provider>
