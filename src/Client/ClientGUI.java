@@ -16,7 +16,6 @@ public class ClientGUI {
     private JTextField text;
     private RequestHandler requestHandler;
     private String word, mean, syn;
-    private final int SUCCEED = 1;
     private final int OPERATION_FAIL = 0;
     private final int CONNECTION_FAIL = 2;
 
