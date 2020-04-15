@@ -54,13 +54,13 @@ public class RequestHandler {
             }
 
             // get and read response from server handler
-            ArrayList<String> request = serverHandler.getRequest();
-            state = Integer.parseInt(request.get(0));
-            meaning = request.get(1);
-            synonym = request.get(2);
+            ArrayList<String> response = serverHandler.getResponse();
+            state = Integer.parseInt(response.get(0));
+            meaning = response.get(1);
+            synonym = response.get(2);
 
             System.out.println("Connect Success");
-            System.out.println("State: " + request.get(0));
+            System.out.println("State: " + response.get(0));
 
         } catch (TimeoutException e) {
             state = CONNECTION_FAIL;

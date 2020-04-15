@@ -22,7 +22,7 @@ public class ServerHandler extends Thread  {
 
     private String address, command, word, meaning, synonym;
     private int port, state;
-    private ArrayList<String> request;
+    private ArrayList<String> response;
     private Socket socket;
     private final int SUCCESS = 1;
     private final int CONNECTION_FAIL = 2;
@@ -37,7 +37,7 @@ public class ServerHandler extends Thread  {
         this.synonym = synonym;
         this.state = 0;
         this.socket = null;
-        this.request = new ArrayList<>();
+        this.response = new ArrayList<>();
     }
 
     @Override
@@ -70,9 +70,9 @@ public class ServerHandler extends Thread  {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.add(String.valueOf(state));
-        request.add(meaning);
-        request.add(synonym);
+        response.add(String.valueOf(state));
+        response.add(meaning);
+        response.add(synonym);
         try {
             socket.close();
         } catch (IOException e) {
@@ -80,8 +80,8 @@ public class ServerHandler extends Thread  {
         }
     }
 
-    public ArrayList<String> getRequest() {
-        return request;
+    public ArrayList<String> getResponse() {
+        return response;
     }
 
     /* write JSON object for request */

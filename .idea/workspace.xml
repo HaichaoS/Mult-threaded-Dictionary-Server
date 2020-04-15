@@ -7,22 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6960cbd-2c7d-46e1-9df1-79db6f08f3a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jortho.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mult-threaded-Dictionary-Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Mult-threaded-Dictionary-Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/RequestHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/RequestHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ServerHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Dict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Dict.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ServerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ServerGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ServerHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,14 +44,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+            <state relative-caret-position="15">
+              <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client/RequestHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/ServerHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-163">
+              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -108,13 +116,13 @@
         <option value="$PROJECT_DIR$/src/Client/ExecuteThread.java" />
         <option value="$PROJECT_DIR$/src/Client/OperationHandler.java" />
         <option value="$PROJECT_DIR$/src/Client/Client.java" />
-        <option value="$PROJECT_DIR$/src/Client/ServerHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/Server.java" />
-        <option value="$PROJECT_DIR$/src/Client/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/Dict.java" />
         <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerGUI.java" />
         <option value="$PROJECT_DIR$/src/Client/ClientGUI.java" />
+        <option value="$PROJECT_DIR$/src/Client/RequestHandler.java" />
+        <option value="$PROJECT_DIR$/src/Client/ServerHandler.java" />
       </list>
     </option>
   </component>
@@ -292,17 +300,19 @@
       <workItem from="1586658902147" duration="1153000" />
       <workItem from="1586836544648" duration="2351000" />
       <workItem from="1586934844298" duration="2658000" />
-      <workItem from="1586938549880" duration="993000" />
+      <workItem from="1586938549880" duration="1538000" />
+      <workItem from="1586952989730" duration="141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87031000" />
+    <option name="totallyTimeSpent" value="87717000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="820" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33690986" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34191704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -311,7 +321,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32692307" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32692307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -422,23 +432,6 @@
     <entry file="file://$PROJECT_DIR$/src/Server/DictRequestHandlerThread.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/ExecuteThread.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/OperationHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/Client/ServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/RequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -488,11 +481,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+        <state relative-caret-position="15">
+          <caret line="49" column="37" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/RequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="56" column="54" lean-forward="true" selection-start-line="56" selection-start-column="54" selection-end-line="56" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/ServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
         </state>
       </provider>
     </entry>
