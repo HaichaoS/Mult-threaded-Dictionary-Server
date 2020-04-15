@@ -7,7 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6960cbd-2c7d-46e1-9df1-79db6f08f3a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jortho.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mult-threaded-Dictionary-Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Mult-threaded-Dictionary-Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ClientGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/RequestHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/RequestHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Client/ServerHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Dict.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Dict.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ServerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mult-threaded-Dictionary-Server/Server/ServerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientGUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,13 +39,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/ServerGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
+            <state relative-caret-position="690">
               <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/libraries/jortho.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -67,13 +108,13 @@
         <option value="$PROJECT_DIR$/src/Client/ExecuteThread.java" />
         <option value="$PROJECT_DIR$/src/Client/OperationHandler.java" />
         <option value="$PROJECT_DIR$/src/Client/Client.java" />
-        <option value="$PROJECT_DIR$/src/Client/ClientGUI.java" />
         <option value="$PROJECT_DIR$/src/Client/ServerHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/Server.java" />
         <option value="$PROJECT_DIR$/src/Client/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/Dict.java" />
         <option value="$PROJECT_DIR$/src/Server/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/Server/ServerGUI.java" />
+        <option value="$PROJECT_DIR$/src/Client/ClientGUI.java" />
       </list>
     </option>
   </component>
@@ -91,6 +132,12 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="21" />
     <option name="y" value="24" />
@@ -102,6 +149,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,8 +200,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,17 +291,18 @@
       <workItem from="1586596759190" duration="1144000" />
       <workItem from="1586658902147" duration="1153000" />
       <workItem from="1586836544648" duration="2351000" />
+      <workItem from="1586934844298" duration="2658000" />
+      <workItem from="1586938549880" duration="993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83134000" />
+    <option name="totallyTimeSpent" value="87031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="820" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32832617" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33690986" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -263,7 +311,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32784638" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32692307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -273,14 +321,14 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32921812" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32921812" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32692307" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.3297568" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
@@ -374,24 +422,10 @@
     <entry file="file://$PROJECT_DIR$/src/Server/DictRequestHandlerThread.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/ExecuteThread.java" />
     <entry file="file://$PROJECT_DIR$/src/Client/OperationHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/ServerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="95" column="4" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -434,10 +468,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/spellchecker_3_1_0.xml" />
     <entry file="file://$PROJECT_DIR$/src/Server/ServerGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
+        <state relative-caret-position="690">
           <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/jortho.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/ClientGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="60" column="33" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -517,7 +572,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>json</last-edited>
+          <last-edited>jortho</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

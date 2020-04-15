@@ -1,5 +1,8 @@
 package Client;
 
+import com.inet.jortho.FileUserDictionary;
+import com.inet.jortho.SpellChecker;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -44,6 +47,18 @@ public class ClientGUI {
         JLabel synonym = new JLabel("Synonym:");
         JTextArea synonymPane = new JTextArea();
 
+        //FILE LOCATION OF DICTIONARY
+        String userDictionaryPath =  "/Dictionary/";
+
+        //SET DICTIONARY PROVIDER FROM DICTIONARY PATH
+        SpellChecker.setUserDictionaryProvider(new FileUserDictionary(userDictionaryPath));
+
+        //REGISTER DICTIONARY
+        SpellChecker.registerDictionaries(getClass().getResource(userDictionaryPath), "en");
+
+        SpellChecker.register(text);
+        SpellChecker.register(meaningPane);
+        SpellChecker.register(synonymPane);
 
         // Search button and its listener
         JButton search = new JButton("SEARCH");
