@@ -49,8 +49,8 @@ public class Server {
 
                 // socket object to receive incoming client requests
                 Socket s = serverSocket.accept();
-                printLog("A new client is connected : " + s);
-                printLog("Assigning new thread for this client");
+                printLog("Client is connected : \n" + s);
+                printLog("Assigning thread for the client");
 
                 // create a new thread object
                 ClientHandler t = new ClientHandler(s, this, dict);

@@ -6,8 +6,7 @@ import org.json.simple.parser.JSONParser;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.util.ArrayList;
 
 /**
@@ -62,6 +61,15 @@ public class ServerHandler extends Thread  {
             dos.close();
 
         } catch (UnknownHostException e) {
+            state = CONNECTION_FAIL;
+            e.printStackTrace();
+        } catch (ConnectException e) {
+            state = CONNECTION_FAIL;
+            e.printStackTrace();
+        } catch (SocketTimeoutException e) {
+            state = CONNECTION_FAIL;
+            e.printStackTrace();
+        } catch (SocketException e) {
             state = CONNECTION_FAIL;
             e.printStackTrace();
         } catch (IOException e) {
