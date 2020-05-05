@@ -7,9 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
     <orderEntry type="library" name="json" level="project" />
     <orderEntry type="library" name="spellchecker-3.1.0" level="project" />
     <orderEntry type="library" name="jortho" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
   </component>
 </module>

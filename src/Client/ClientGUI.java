@@ -225,11 +225,11 @@ public class ClientGUI {
 
     /* Check if user entered the word or meaning in operation */
     public Boolean isValid(String command, String word, String meaning) {
-        if (word == "") {
+        if (word.equals("")) {
             JOptionPane.showMessageDialog(frame, "Please Enter a word.", "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return false;
-        } else if (command == "Add" && meaning == "") {
+        } else if (command.equals("Add") && meaning.equals("")) {
             JOptionPane.showMessageDialog(frame, "Please Enter the meaning.", "Warning",
                     JOptionPane.WARNING_MESSAGE);
             return false;
